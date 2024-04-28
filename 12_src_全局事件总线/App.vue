@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+   <div class="app">
       <h1>{{ msg }}</h1>
       <School/>
       <Student/>
@@ -7,9 +7,8 @@
 </template>
 
 <script>
-import Student from './components/Student.vue';
-import School from './components/School.vue';
-
+import Student from "@/components/Student";
+import School from "@/components/School";
 export default {
   name: "App",
   components: {
@@ -17,16 +16,16 @@ export default {
     Student,
   },
   data() {
-   return {
-    msg: "hello",
-    studentName: '',
-   }
-  },
+    return {
+      msg: 'helloこんにちは',
+      studentName: ''
+    }
+  }
 }
 </script>
 
 <style>
-  /*
+   /*
    全局的样式是不需要加scoped
    全局共享
    */
@@ -35,3 +34,5 @@ export default {
      padding: 5px;
    }
 </style>
+
+

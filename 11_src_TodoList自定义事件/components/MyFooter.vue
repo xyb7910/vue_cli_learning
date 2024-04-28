@@ -16,7 +16,7 @@
 <script>
 export default {
     name:'MyFooter',
-    props: ['todos', 'checkAllTodo','clearAllDoneTodo'],
+    props: ['todos'],
     computed: {
         total() {
             return this.todos.length;
@@ -37,7 +37,10 @@ export default {
     },
     methods: {
         clearAll() {
-            this.clearAllDoneTodo();
+            // this.clearAllDoneTodo();
+
+            // 改为自定义事件
+            this.$emit('clearAllDoneTodo');
         }
     }
 

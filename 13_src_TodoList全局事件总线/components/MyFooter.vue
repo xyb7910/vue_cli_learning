@@ -28,16 +28,19 @@ export default {
         },
         isAll: {
             get() {
-                return this.total === this.doneTotal && this.doneTotal > 0; // //计算属性可以通过其他的计算属性接着进行计算得到结果
+              return this.total === this.doneTotal && this.doneTotal > 0; // //计算属性可以通过其他的计算属性接着进行计算得到结果
             },
             set(value) {
-                this.checkAllTodo(value);
+              //value 注意要么为 true，要么为 false
+              // this.checkAllTodo(value);
+              this.$emit('checkAllTodo', value);
             }
         }
     },
     methods: {
         clearAll() {
-            this.clearAllDoneTodo();
+            // this.clearAllDoneTodo();
+            this.$emit('clearAllDoneTodo');
         }
     }
 

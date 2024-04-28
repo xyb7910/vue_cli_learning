@@ -30,12 +30,13 @@ export default {
 
             // console.log(todoObj);
             
-            this.addTodo(todoObj)
+            // this.addTodo(todoObj)
+            this.$emit('addTodo', todoObj)
             this.title = ""
             
         }
     },
-    props: ['addTodo'],
+    // props: ['addTodo'],
 }
 
 </script>
