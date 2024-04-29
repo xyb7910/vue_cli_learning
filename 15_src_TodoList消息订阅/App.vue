@@ -50,7 +50,7 @@ export default {
       const todo = this.todos.find(todo => todo.id === id);
       todo.done = !todo.done;
     },
-    deleteTodo(_, id) {
+    deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
     checkAllTodo(done) {
@@ -58,11 +58,6 @@ export default {
     },
     clearAllDoneTodo() {
       this.todos = this.todos.filter(todo => !todo.done)
-    },
-    updateTodo(id, title) {
-      this.todos.forEach(todo => {
-        if(todo.id == id) todo.title = title;
-      })
     }
   },
   watch: {
@@ -76,13 +71,11 @@ export default {
   // 挂在事件总线上
   mounted() {
     this.$bus.$on('checkTodo', this.checkTodo);
-    this.$bus.$on('updateTodo', this.updateTodo);
     this.puhId = pubsub.subscribe('deleteTodo', this.deleteTodo);
   },
   // 被下载注意解绑
   beforeMount() {
     this.$bus.$off('checkTodo');
-    this.$bus.$off('updateTodo');
     pubsub.unsubscribe(this.puhId);
   }
 }
@@ -117,14 +110,6 @@ body {
   color: #fff;
   background-color: #bd362f;
 }
-
-.btn-edit{
-  color: #fff;
-  background-color: skyblue;
-  border: 1px solid rgb(103, 159, 180);
-  margin-right: 5px;
-}
-
 
 .btn:focus {
   outline: none;
