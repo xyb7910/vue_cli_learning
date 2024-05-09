@@ -968,7 +968,7 @@ module.exports = {
    })
    this.$router.forward() //前进
    this.$router.back() //后退
-   this.$router.go() //可前进也可后退 参数是number类型(正数为前进的步数,负数为后退的部署)
+   this.$router.go() //可前进也可后退 参数是number类型(正数为前进的步数,负数为后退的步数)
    ```
 
 ### 10.缓存路由组件
